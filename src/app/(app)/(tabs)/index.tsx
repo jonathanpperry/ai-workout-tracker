@@ -1,10 +1,14 @@
+import SafeViewAndroid from "@/app/components/SafeViewAndroid";
 import { Link } from "expo-router";
 import React from "react";
 import { SafeAreaView, Text, View } from "react-native";
 
 export default function Page() {
   return (
-    <SafeAreaView className="flex flex-1">
+    <SafeAreaView
+      style={SafeViewAndroid.AndroidSafeArea}
+      className="flex flex-1"
+    >
       <Header />
       <Content />
     </SafeAreaView>
@@ -75,7 +79,7 @@ function Header() {
     <View>
       <View className="px-4 lg:px-6 h-14 flex items-center flex-row justify-between ">
         <Link className="font-bold flex-1 items-center justify-center" href="/">
-          PAPAFAM
+          JONNYRAMEN
         </Link>
         <View className="">
           <Link

@@ -1,6 +1,5 @@
 import { Tabs } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { Image } from "react-native";
 
 function Layout() {
   return (
@@ -15,6 +14,7 @@ function Layout() {
           ),
         }}
       />
+
       <Tabs.Screen
         name="exercises"
         options={{

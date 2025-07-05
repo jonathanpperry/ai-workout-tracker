@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 import React from "react";
 
 const Exercises = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>Exercises</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import { Exercise } from "@/lib/sanity/types";
 import { urlFor } from "@/lib/sanity/client";
 import { Ionicons } from "@expo/vector-icons";
-import { getDifficultyColor, getDifficultyText } from "@/app/util/utils";
+import { getDifficultyColor, getDifficultyText } from "lib/utils";
 
 interface ExerciseCardProps {
   item: Exercise;

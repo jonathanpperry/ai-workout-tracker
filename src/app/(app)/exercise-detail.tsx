@@ -15,8 +15,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { Exercise } from "@/lib/sanity/types";
 import { client, urlFor } from "@/lib/sanity/client";
 import { defineQuery } from "groq";
-import { getDifficultyColor, getDifficultyText } from "../util/utils";
 import Markdown from "react-native-markdown-display";
+import { getDifficultyColor, getDifficultyText } from "lib/utils";
 
 const singleExerciseQuery = defineQuery(
   `*[_type == "exercise" && _id == $id][0]`

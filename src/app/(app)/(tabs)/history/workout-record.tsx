@@ -5,18 +5,14 @@ import {
   ActivityIndicator,
   ScrollView,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { defineQuery } from "groq";
 import { client } from "@/lib/sanity/client";
 import { GetWorkoutRecordQueryResult } from "@/lib/sanity/types";
-import {
-  formatDate,
-  formatDuration,
-  formatTime,
-  formatWorkoutDuration,
-} from "lib/utils";
+import { formatDate, formatTime, formatWorkoutDuration } from "lib/utils";
 import { Ionicons } from "@expo/vector-icons";
 
 export const getWorkoutRecordQuery =
@@ -96,6 +92,46 @@ const WorkoutRecord = () => {
     return { volume: totalVolume, unit };
   };
 
+  const handleDeleteWorkout = () => {
+    Alert.alert(
+      "Delete Workout",
+      "Are you sure you want to delete this workout? This action cannot be undone.",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Delete",
+          style: "destructive",
+          onPress: deleteWorkout,
+        },
+      ]
+    );
+  };
+
+  const deleteWorkout = async () => {
+    if (!workoutId) return;
+
+    setDeleting(true);
+
+    try {
+      await fetch("/api/delete-workout", {
+        method: "POST",
+        body: JSON.stringify({ workoutId }),
+      });
+
+      router.replace("/(app)/(tabs)/history?refresh=true");
+    } catch (error) {
+      console.error("Error deleting workout: ", error);
+      Alert.alert("Error", "Failed to delete workout. Please try again.", [
+        { text: "OK" },
+      ]);
+    } finally {
+      setDeleting(false);
+    }
+  };
+
   if (loading) {
     return (
       <SafeAreaView className="flex-1 bg-gray-50">
@@ -119,7 +155,7 @@ const WorkoutRecord = () => {
               Workout Summary
             </Text>
             <TouchableOpacity
-              //   onPress={handleDeleteWorkout}
+              onPress={handleDeleteWorkout}
               disabled={deleting}
               className="bg-red-600 px-4 py-2 rounded-lg flex-row items-center"
             >

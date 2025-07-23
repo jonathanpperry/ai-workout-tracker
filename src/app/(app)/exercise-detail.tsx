@@ -186,7 +186,7 @@ export default function ExerciseDetail() {
               <View className="flex-row items-center mb-3">
                 <Ionicons name="fitness" size={24} color="#3B82F6" />
                 <Text className="text-xl font-semibold text-gray-800 mt-2">
-                  Ai Coach says...
+                  AI Coach says...
                 </Text>
               </View>
 

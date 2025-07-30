@@ -17,7 +17,7 @@ export default defineType({
       name: 'date',
       title: 'Workout Date',
       description: 'The date when this workout was performed',
-      type: 'date',
+      type: 'datetime',
       validation: (Rule) => Rule.required(),
     }),
     defineField({

@@ -20,8 +20,7 @@ function Content() {
     <View className="flex-1">
       <View className="py-12 md:py-24 lg:py-32 xl:py-48">
         <View className="px-4 md:px-6">
-          <View className="flex flex-col items-center gap-4 text-center">
-          </View>
+          <View className="flex flex-col items-center gap-4 text-center"></View>
         </View>
       </View>
     </View>
@@ -33,16 +32,9 @@ function Header() {
     <View>
       <View className="px-4 lg:px-6 h-14 flex items-center flex-row justify-between ">
         <Link className="font-bold flex-1 items-center justify-center" href="/">
-          JONNYRAMEN
+          <Text>JONNYRAMEN Workout Tracker</Text>
         </Link>
-        <View className="">
-          <Link
-            className="text-md font-medium hover:underline web:underline-offset-4"
-            href="https://www.papareact.com/course"
-          >
-            Join My Course ❤️
-          </Link>
-        </View>
+        <View className=""></View>
       </View>
     </View>
   );

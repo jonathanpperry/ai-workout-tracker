@@ -4,6 +4,7 @@ import {
   RefreshControl,
   SafeAreaView,
   ScrollView,
+  StatusBar,
   Text,
   TouchableOpacity,
   View,
@@ -141,8 +142,10 @@ export default function HistoryPage() {
   return (
     <SafeAreaView
       style={SafeViewAndroid.AndroidSafeArea}
-      className="flex-1 bg-gray-50"
+      className="flex-1 bg-white"
     >
+      <StatusBar barStyle="dark-content" backgroundColor="white" />
+
       {/* Header */}
       <View className="px-6 py-4 bg-white border-b border-gray-200">
         <Text className="text-2xl font-bold text-gray-900">

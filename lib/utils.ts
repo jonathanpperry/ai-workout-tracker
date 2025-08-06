@@ -1,3 +1,5 @@
+import { GetWorkoutsQueryResult } from "@/lib/sanity/types";
+
 export const getDifficultyColor = (difficulty: string) => {
   switch (difficulty) {
     case "beginner":
@@ -84,4 +86,12 @@ export const formatTime = (dateString?: string) => {
     minute: "2-digit",
     hour12: true,
   });
+};
+
+export const getTotalSets = (workout: GetWorkoutsQueryResult[number]) => {
+  return (
+    workout.exercises?.reduce((total, exercise) => {
+      return total + (exercise.sets?.length || 0);
+    }, 0) || 0
+  );
 };

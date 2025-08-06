@@ -15,8 +15,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { getWorkoutsQuery } from "../history";
 import { formatDuration } from "lib/utils";
+import { getWorkoutsQuery } from "@/lib/sanity/workoutQueries";
 
 export default function ProfilePage() {
   const { signOut } = useAuth();

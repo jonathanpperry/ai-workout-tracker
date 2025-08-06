@@ -10,36 +10,15 @@ import {
   View,
 } from "react-native";
 import { useUser } from "@clerk/clerk-expo";
-import { defineQuery } from "groq";
+import { Ionicons } from "@expo/vector-icons";
 
+// Relative imports
+import { getWorkoutsQuery } from '@/lib/sanity/workoutQueries';
 import { GetWorkoutsQueryResult } from "@/lib/sanity/types";
 import { client } from "@/lib/sanity/client";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { formatDuration } from "lib/utils";
+import { formatDuration, getTotalSets } from "lib/utils";
 import SafeViewAndroid from "@/app/components/SafeViewAndroid";
-import { Ionicons } from "@expo/vector-icons";
-
-export const getWorkoutsQuery =
-  defineQuery(`*[_type == "workout" && userId == $userId] | order(date desc) {
-    _id,
-    date,
-    duration,
-    exercises[] {
-      exercise-> {
-        _id,
-        name
-      },
-      sets[] {
-        reps,
-        weight,
-        weightUnit,
-        _type,
-        _key
-      },
-      _type,
-      key
-    }
-  }`);
 
 export default function HistoryPage() {
   const { user } = useUser();
@@ -106,13 +85,13 @@ export default function HistoryPage() {
     return formatDuration(seconds);
   };
 
-  const getTotalSets = (workout: GetWorkoutsQueryResult[number]) => {
-    return (
-      workout.exercises?.reduce((total, exercise) => {
-        return total + (exercise.sets?.length || 0);
-      }, 0) || 0
-    );
-  };
+  // const getTotalSets = (workout: GetWorkoutsQueryResult[number]) => {
+  //   return (
+  //     workout.exercises?.reduce((total, exercise) => {
+  //       return total + (exercise.sets?.length || 0);
+  //     }, 0) || 0
+  //   );
+  // };
 
   const getExerciseNames = (workout: GetWorkoutsQueryResult[number]) => {
     return (

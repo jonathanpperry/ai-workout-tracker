@@ -15,6 +15,24 @@
       ]
     ],
     "name": "fit-app",
-    "slug": "fit-app"
+    "slug": "fit-app",
+    "extra": {
+      "router": {
+        "origin": "https://n"
+      },
+      "eas": {
+        "projectId": "ce3cfbdd-0192-470f-a1da-8328276b95d9"
+      }
+    },
+    "android": {
+      "package": "com.jonnyramen.fitapp"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/ce3cfbdd-0192-470f-a1da-8328276b95d9"
+    },
+    "ios": {}
   }
 }

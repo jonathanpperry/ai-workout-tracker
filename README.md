@@ -14,3 +14,11 @@ Deploy on all platforms with Expo Application Services (EAS).
 
 - Deploy the website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
 - Deploy on iOS and Android using: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
+
+## Build APK on EAS:
+
+Command for building an apk:
+
+```
+eas build --platform android --profile preview
+```

@@ -1,38 +1,29 @@
 {
   "expo": {
-    "scheme": "acme",
-    "userInterfaceStyle": "automatic",
-    "orientation": "default",
-    "web": {
-      "output": "server"
-    },
-    "plugins": [
-      [
-        "expo-router",
-        {
-          "origin": "https://n"
-        }
-      ]
-    ],
     "name": "fit-app",
     "slug": "fit-app",
-    "extra": {
-      "router": {
-        "origin": "https://n"
-      },
-      "eas": {
-        "projectId": "ce3cfbdd-0192-470f-a1da-8328276b95d9"
-      }
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
     },
     "android": {
-      "package": "com.jonnyramen.fitapp"
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true
     },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/ce3cfbdd-0192-470f-a1da-8328276b95d9"
-    },
-    "ios": {}
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
   }
 }
